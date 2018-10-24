@@ -10,13 +10,13 @@ while True:
 
     print("1.Retrive tweets:")
     print("2.Count the followers:")
-    print("3.Update the status:")
+    print("3.Update the status of twitter account:")
     print("4.Get Location,language and Time Zone:")
-    print("5.compare the Twitter users:")
+    print("5.compare the users tweets:")
     print("6.Sentiment the Tweets and User:")
     print("7.Text a message:")
     print("8.Exit")
-    choice=int(input("Enter your choice: "))
+    choice=int(input("Enter choice: "))
     consumer_key = "#"
     consumer_secret = '#'
     access_token = '#'
@@ -41,17 +41,17 @@ while True:
         print("followers :",user.followers_count)
         return
     def status():
-        status=input("enter any Status: ")
-        user_id = input("enter any id to upload the status:")
+        status=input("enter the Status: ")
+        user_id = input("enter the id to upload the status:")
         api.update_status(status,user_id)
     def loc():
-        user_id = input("enter any id to see location:")
+        user_id = input("enter the id to see location:")
         user = api.get_user(user_id)
         print("location :",user.location)
         print("Time Zone:",user.time_zone)
         print("language: ",user.lang)
     def direct_msg():
-        user_id= input("enter any id to send msg:")
+        user_id= input("enter the id to send msg:")
         msg=input("enter any msg:")
         api.send_direct_message(user=user_id,text=msg)
 
@@ -87,7 +87,7 @@ while True:
         if (var2 > var3) and (var2 > var1):
             print("negative")
         if (var3 > var2) and (var3 > var1):
-            print("This user is neutral on Twitter")
+            print("This user is neutral or inactive on Twitter")
     def comp():
         user_id = input("enter 1st id to Compare:")
         user = api.get_user(user_id)
@@ -112,7 +112,7 @@ while True:
     if choice==5:
         comp()
     if choice==6:
-        username = input("enter any user id:")
+        username = input("enter the user id:")
         get_tweets(username)
     if choice==7:
         direct_msg()
